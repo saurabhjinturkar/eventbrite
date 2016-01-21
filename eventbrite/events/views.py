@@ -1,26 +1,24 @@
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse
 import requests
+import EventBriteService
 # Create your views here.
 
 def index(request):
-	print request.POST
-	context = {}
-	return render(request, 'events/templates/index.html', context)
+	service = EventBriteService.EventBriteService()
+	categories = service.fetch_categories()
+	context = {'categories': categories}
+	return render_to_response('events/templates/index.html', context)
 
 def show_events(request):
-	print request.POST
-	print request.POST.getlist('categories')
-	for x in request.POST.getlist('categories'):
-		print x
 	categories = ','.join(x for x in request.POST.getlist('categories'))
-	r = requests.get('https://www.eventbriteapi.com/v3/events/search?categories='+categories+'&token=D5XL6OC6476ELPPFANDY')	
-	
-	response = r.json()
+	service = EventBriteService.EventBriteService()
+	response = service.fetch_events(categories)
 	output = []
 	for event in response['events']:
 		p = [event['name']['html']]  
 		if event['logo'] is not None:
 			p.append(event['logo']['url'])
+		p.append(event['url'])
 		output.append(p)
 	return render_to_response('events.html', {'events':output})	

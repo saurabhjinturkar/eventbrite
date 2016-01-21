@@ -6,13 +6,17 @@
 </head>
 <body>
 
+<div align="center">
 {% block content %}
 
 {% for event in events %}
-    <p>{{ event.0 | safe}}</p>
-    <img src={{ event.1 }} />
+		<a href = {{ event.2 }}>
+		<div>
+        <img src={{ event.1 }} />
+        <p>{{ event.0 | safe}}</p>
+        </div></a>
 {% endfor %}
 {% endblock %}
-
+</div>
 </body>
 </html>
