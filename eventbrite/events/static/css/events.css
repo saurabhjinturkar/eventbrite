@@ -1,0 +1,98 @@
+/*
+* Standard CSS taken from HTML5 main.css template
+*/
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+.box {
+	width: 190px;
+	height: 90px;
+	overflow: hidden;
+	position: relative;
+	display: block;
+	float: left;
+	background-color: "#EEEEEC";
+}
+
+.image-box {
+	max-height: 100%;
+	max-width: 100%;
+	position: relative;
+}
+
+.list-event {
+	display: block;
+	padding: 10px;
+	position: relative;
+	margin: 20px;
+}
+.event-info {
+	position: relative;
+	float: left;
+	display: block;
+	padding-left: 20px;
+	color: #444;
+	font-size: 1.2em;
+}

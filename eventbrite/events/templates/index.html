@@ -3,14 +3,14 @@
 
 {%block content %}
     <div class="row col-md-10 col-md-offset-1">
-        <h3 align="center">Choose 3 categories</h3>
+        <h3 align="center">Please select event categories</h3>
     </div>
 
     <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <form action="show/" method="post">
-            {% csrf_token %}
-            {{categories|length}}
+            
+            You can select <span id = "count"> 3 </span> more categories.
             {% for category in categories %}
             <div class="checkbox"> 
                 <label> 
@@ -23,8 +23,8 @@
             </div>
 
             {%endfor%}
-
-            <button type="submit" class="btn btn-default" disabled="true">Submit</button>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-default" disabled="true" id ="submit">Submit</button>
         </form>
     </div>
     </div>

@@ -10,3 +10,6 @@ class Category(models.Model):
 
 	def __str__(self):
 		return self.name + " " + str(self.category_id)
+
+# class Event(models.Model):
+# 	name = 
