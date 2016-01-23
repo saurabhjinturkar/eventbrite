@@ -3,32 +3,32 @@
 
 {% block content %}
 
-<div class ="row">
-<h3> Showing events for following Categories: </h3>
-<h4>{{request.session.category_names}}</h4>
-<a href="/events/">Change Categories</a>
+<div class="row">
+    <h3> Showing events for following Categories: </h3>
+    <h4>{{request.session.category_names}}</h4>
+    <a href="/events/">Change Categories</a>
 </div>
 
 {% for event in events.events %}
 <div class="row">
-<div class="list-event md-col-8">
-    <a href = {{ event.url }}>
-        <div class=''>
-            <div class="box">
-                <img class="image-box" onerror='this.style.display = "none"' src={{ event.image_url }} /> 
-            </div>
-            <div class="event-info">
-                <p><b>{{ event.name | safe}}</b></p>
-                <p>{{ event.start |date:"D d M Y" }} {{ event.start|time:"H:i" }}</p>
-                <p>{{event.city}}</p>
+    <div class="list-event md-col-8">
+        <a href={{ event.url }}>
+            <div class=''>
+                <div class="box">
+                    <img class="image-box" onerror='this.style.display = "none"' src= "{{ event.image_url }}"/>
+                </div>
+                <div class="event-info">
+                    <p><b>{{ event.name | safe}}</b></p>
+                    <p>{{ event.start |date:"D d M Y" }} {{ event.start|time:"H:i" }}</p>
+                    <p>{{event.city}}</p>
                 </div>
             </div>
         </a></div>
-        </div>
-        {% endfor %}
-        
-        <div class="row">
-        <div class="pagination" align="center">
+</div>
+{% endfor %}
+
+<div class="row">
+    <div class="pagination" align="center">
             <span class="step-links">
                 {% if events.has_previous %}
                 <a href="?page={{ events.previous_page_number }}">previous</a>
@@ -42,11 +42,11 @@
                 <a href="?page={{ events.next_page_number }}">next</a>
                 {% endif %}
             </span>
-        </div>
-        </div>
-        {% endblock %}
+    </div>
+</div>
+{% endblock %}
 
-        {%block script %}
-        <link rel="stylesheet" href={%static 'css/events.css'%} type="text/css">
-        <script src="{%static 'js/events.js'%}"></script>
-        {%endblock%}
+{%block script %}
+<link rel="stylesheet" href={% static 'css/events.css'%} type="text/css">
+<script src="{% static 'js/events.js' %}"></script>
+{%endblock%}
