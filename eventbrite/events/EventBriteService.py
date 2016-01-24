@@ -35,7 +35,6 @@ class EventBriteService(object):
             p = {'name': event['name']['html']}
             if event['logo'] is not None:
                 p['image_url'] = event['logo']['url']
-                print p['image_url']
             p['url'] = event['url']
             p['start'] = parse(event['start']['utc'])
             try:
